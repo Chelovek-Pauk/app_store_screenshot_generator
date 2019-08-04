@@ -1,0 +1,20 @@
+def ResizeImage(imagePath ,saveName,newwidth ,newheight):
+    imageObject  = Image.open(imagePath)
+    w, h = imageObject.size
+    if h < newheight:
+        coef = newheight / h
+        temp_width = int(w * coef)
+        imageObject_1 = imageObject.resize((temp_width, newheight), Image.NEAREST) 
+        
+        if temp_width>=newwidth:
+            crop_dist = int((temp_width - newwidth)/2)
+            cropped_Image = imageObject_1.crop((crop_dist,0,temp_width - crop_dist,newheight))
+            cropped_Image.save(imagePath + ' ' + saveName + '.png')
+        else:
+            coef1 = newwidth / temp_width
+            temp_height = int(newheight * coef1)
+            imageObject_2 = imageObject.resize((newwidth, temp_height), Image.NEAREST) 
+            crop_dist = int(temp_height - newheight)
+            cropped_Image = imageObject_2.crop((0,0,newwidth,temp_height - crop_dist))
+            cropped_Image.save(imagePath + ' ' + saveName + '.png')
+        
