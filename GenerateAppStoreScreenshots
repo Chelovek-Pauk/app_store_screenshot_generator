@@ -1,0 +1,18 @@
+def GenerateAppStoreScreenshots(imagePath):
+    #1. 6.5 Inch - 1242 x 2688
+    saveName = '2688 x 1242'
+    newwidth = 2688
+    newheight = 1242
+    ResizeImage(imagePath ,saveName,newwidth ,newheight)
+    
+    #2. 5.5 Inch - 1242 x 2208
+    saveName = '2208 x 1242'
+    newwidth = 2208
+    newheight = 1242
+    ResizeImage(imagePath ,saveName,newwidth ,newheight)
+    
+    #3. 12.9 Inch - 2048 x 2732
+    saveName = '2732 x 2048'
+    newwidth = 2732
+    newheight = 2048
+    ResizeImage(imagePath ,saveName,newwidth ,newheight)
